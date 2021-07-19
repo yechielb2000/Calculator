@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+body{
+  display: flex;
+  justify-content: center;
+  background-color: snow;
+}
+
+div{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  width: 100%;
+  background-color: snow;
+}
+
+button{
+  color: aliceblue;
+  background-color: cornflowerblue;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+textarea{
+  resize: none;
+  width: 80px;
+  height: 15px;
+  border: solid 2px ;
+  border-radius: 4px;
+  margin-bottom: -6px;
+}
+
+textarea:focus{
+  background-color: white;
+}
+
+button:hover{
+  background-color: royalblue;
+}
