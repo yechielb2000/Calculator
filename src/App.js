@@ -4,69 +4,72 @@ import './App.css';
 class App extends React.Component {
     
   constructor(props){
-    super(props);
+    super(props)
     this.state = {sum: ""};
+  }
+
+  createButton = (value) => {
+    if(value === '='){
+      return <button onClick={()=>this.solve()}>{value}</button>
+    }
+    if(value === 'c'){
+      return <button onClick={()=>this.clr()}>{value}</button>
+    }
+    return <button onClick={()=>this.getValue(value)}>{value}</button>
+  }
+  
+  getValue(value){
+    this.setState({sum: this.state.sum + value})
+  }
+  
+  solve = () => {
+   
+    try{
+      this.setState({sum: eval(this.state.sum)})
+    }catch(err){
+      this.setState({sum: ""})
+    }
+  }
+
+  clr = () => {
+    this.setState({sum: ""})
   }
 
   render(){
     return (
       <>
-        <table id="container">
+        <table style={{transform: 'scale(3) translate(0%, 60%)'}}>
           <tr>
-            <th colSpan="3"><textarea readOnly>{this.state.sum}</textarea></th>
-            <th>{createButton('c')}</th>
+            <th colSpan="3"><textarea readOnly value={this.state.sum}></textarea></th>
+            <th>{this.createButton('c')}</th>
           </tr>
           <tr>
-          <th>{createButton(1)}</th>
-          <th>{createButton(2)}</th>
-          <th>{createButton(3)}</th>
-          <th>{createButton('+')}</th>
+          <th>{this.createButton(1)}</th>
+          <th>{this.createButton(2)}</th>
+          <th>{this.createButton(3)}</th>
+          <th>{this.createButton('+')}</th>
           </tr>
           <tr>
-          <th>{createButton(4)}</th>
-          <th>{createButton(5)}</th>
-          <th>{createButton(6)}</th>
-          <th>{createButton('-')}</th>
+          <th>{this.createButton(4)}</th>
+          <th>{this.createButton(5)}</th>
+          <th>{this.createButton(6)}</th>
+          <th>{this.createButton('-')}</th>
           </tr>
           <tr>
-          <th>{createButton(7)}</th>
-          <th>{createButton(8)}</th>
-          <th>{createButton(9)}</th>
-          <th>{createButton('*')}</th>
+          <th>{this.createButton(7)}</th>
+          <th>{this.createButton(8)}</th>
+          <th>{this.createButton(9)}</th>
+          <th>{this.createButton('*')}</th>
           </tr>
           <tr>
-          <th>{createButton('.')}</th>
-          <th>{createButton(0)}</th>
-          <th>{createButton('=')}</th>
-          <th>{createButton('/')}</th>
+          <th>{this.createButton('.')}</th>
+          <th>{this.createButton(0)}</th>
+          <th>{this.createButton('=')}</th>
+          <th>{this.createButton('/')}</th>
           </tr>
         </table>  
       </>
     );
   }
 }
-
-function createButton(value){
-  
-  if(value == '='){
-    return <button>{value}</button>
-  }
-  if(value == 'c'){
-    return <button>{value}</button>
-  }
-  return <button onClick={getValue(value)}>{value}</button>
-}
-
-function getValue(value){
-    this.setState({sum: this.state.sum += value})
-}
-
-solve = () => {
-  // this.state.sum =  eval(this.state.sum)
-}
-
-clr = () => {
-  // this.state.sum = ""
-}
-
 export default App;
