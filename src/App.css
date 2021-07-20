@@ -4,7 +4,7 @@
 body{
   display: flex;
   justify-content: center;
-  background-color: snow;
+  background-color: honeydew;
 }
 
 div{
@@ -13,7 +13,7 @@ div{
   justify-items: center;
   text-align: center;
   width: 100%;
-  background-color: snow;
+  background-color: honeydew;
 }
 
 button{

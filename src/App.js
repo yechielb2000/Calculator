@@ -18,16 +18,14 @@ class App extends React.Component {
     return <button onClick={()=>this.getValue(value)}>{value}</button>
   }
   
-  getValue(value){
-    this.setState({sum: this.state.sum + value})
-  }
+  getValue(value){this.setState({sum: this.state.sum + value})}
   
   solve = () => {
-   
     try{
-      this.setState({sum: eval(this.state.sum)})
+      this.setState({sum: eval(this.state.sum) + ""})
     }catch(err){
-      this.setState({sum: ""})
+      alert(err.message)
+      this.clr()
     }
   }
 
