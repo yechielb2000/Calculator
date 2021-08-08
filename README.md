@@ -1,2 +1,2 @@
 # Calculator
-A really simple one.
+A simple one.
